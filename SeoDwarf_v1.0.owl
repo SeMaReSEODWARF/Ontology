@@ -1,0 +1,1492 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://seodwarf.eu/ontology/v1.0#"
+     xml:base="http://seodwarf.eu/ontology/v1.0"
+     xmlns:swe="https://sweet.jpl.nasa.gov/sweet2.3/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:gn="http://www.geonames.org/ontology"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dbo="http://dbpedia.org/resource/"
+     xmlns:geo="http://www.eionet.europa.eu/gemet"
+     xmlns:dct="http://dublincore.org/documents/2012/06/14/dcmiterms/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:strdf="http://strdf.di.uoa.gr/ontology/"
+     xmlns:seo="http://seodwarf.eu/ontology/v1.0">
+    <owl:Ontology rdf:about="http://seodwarf.eu/ontology/v1.0">
+        <owl:versionIRI rdf:resource="http://seodwarf.eu/ontology/v1.0/1.0.0"/>
+        <rdfs:label>SEO-DWARF Environment Ontology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasAdministrativeRegion -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasAdministrativeRegion">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#ImageContentArea"/>
+        <rdfs:range rdf:resource="http://seodwarf.eu/ontology/v1.0#AdministrativeRegion"/>
+        <rdfs:comment>It describes the reference of the area to an
+institutional region such as a Country, Region, Province, City that has the
+administrative power on the region defined. It refers to the “administrative_region”
+concept. It is defined as a generic RDF property.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasAlgae -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasAlgae">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#AlgalBloom"/>
+        <rdfs:range rdf:resource="http://seodwarf.eu/ontology/v1.0#Algae"/>
+        <rdfs:comment>I refers to the algae identified for the bloom. The properties has the
+“seo:algae” class as a range.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasBodyOfWater -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasBodyOfWater">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#Front"/>
+        <rdfs:range rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/BodyOfWater"/>
+        <rdfs:comment>It describes the presence of the two different water masses
+that mover in different directions and that have different properties.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasCapturingDate -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasCapturingDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+        <rdfs:range rdf:resource="http://seodwarf.eu/ontology/v1.0#Time"/>
+        <rdfs:comment>It describes the presence of the acquisition date of the
+image. It refers to the “Time” concept of SWEET Ontology, and It is defined as the
+“temporal” property of the Dublin Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:temporal</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasCardinalDirection -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasCardinalDirection">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Wind"/>
+                    <rdf:Description rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/BodyOfWater"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://seodwarf.eu/ontology/v1.0#CardinalDirection"/>
+        <rdfs:comment>It refers to the cardinal direction. The
+properties has the “seo:cardinal_direction” class as a range</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasChlorophyllConcentration -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasChlorophyllConcentration">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#AlgalBloom"/>
+                    <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#TrophicStatusIndex"/>
+                    <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Upwelling"/>
+                    <rdf:Description rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/BodyOfWater"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://seodwarf.eu/ontology/v1.0#ChlorophyllConcentration"/>
+        <rdfs:comment>It refers to the chlorophyll concentration in the
+area. The properties has the
+“seo:chlorophyll_concentration” class as a range</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasContentArea -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasContentArea">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+        <rdfs:range rdf:resource="http://seodwarf.eu/ontology/v1.0#ImageContentArea"/>
+        <rdfs:comment>It describes the presence of different relevant areas in the
+image. It refers to the “seo:image_ content_area” concept and It is defined as the
+“hasPart” property of the Dublin Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:hasPart</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasCoverage -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasCoverage">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#ImageContentArea"/>
+                    <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://seodwarf.eu/ontology/v1.0#GeographicalCoordinate"/>
+        <rdfs:comment>It describes the spatial coverage of the image or the image content region. It refers to the
+“geographical_coordinate” concept. It is defined as the “coverage” property of the
+Dublin Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:coverage</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasDefaultUnit -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasDefaultUnit"/>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasDistanceFromCoast -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasDistanceFromCoast">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#OilSpill"/>
+        <rdfs:range rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/Distance"/>
+        <rdfs:comment>It refers to the distance from the coast of the spill.
+The properties has the “swe:Distance” class as a range. It is measured in Km</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasHeight -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasHeight">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#Wave"/>
+        <rdfs:range rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/Height"/>
+        <rdfs:comment>It refers to the height of the wave. The properties has the “swe:heght”
+class as a range</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasPhenomenon -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasPhenomenon">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#ImageContentArea"/>
+        <rdfs:range rdf:resource="http://seodwarf.eu/ontology/v1.0#Phenomenon"/>
+        <rdfs:comment>It describes the phenomenon present in the region of
+reference. It refers to the “image_SEO-DWARF_phenomenon” concept. It is
+defined as the “Part” property of the Dublin Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:hasPart</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasPhenomenonCoverage -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasPhenomenonCoverage">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#Phenomenon"/>
+        <rdfs:range rdf:resource="http://seodwarf.eu/ontology/v1.0#GeographicalCoordinate"/>
+        <rdfs:comment>It describes the spatial coverage of the
+phenomenon. It refers to the “geographical_coordinate” concept. It is defined as
+the “coverage” property of the Dublin Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:coverage</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasRate -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasRate">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#Wave"/>
+        <rdfs:range rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/Rate"/>
+        <rdfs:comment>It refers to the rate of the wave. The properties has the “swe:rate” class
+as a range</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasRegionType -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasRegionType">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#ImageContentArea"/>
+        <rdfs:range rdf:resource="http://seodwarf.eu/ontology/v1.0#RegionType"/>
+        <rdfs:comment>It describes the type of the region (Sea, Lake, …). The list of elements
+to use is obtained from the GEMET thesaurus. It will refer to the “content_type”
+concept. It is defined as the “type” property of the Dublin Core Ontology.</rdfs:comment>
+        <rdfs:isDefinedBy>dct:hasType</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasSeaLevel -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasSeaLevel">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Upwelling"/>
+                    <rdf:Description rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/BodyOfWater"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/SeaLevel"/>
+        <rdfs:comment>It refers to the sea level . The properties has the
+“swe:Sea Level” extended class as a range</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasSize -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasSize">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#OilSpill"/>
+        <rdfs:range rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/Size"/>
+        <rdfs:comment>it refers to the size of the spill. The properties has the “swe:Size” class
+as a range. It is measured in m2</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasSpeed -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasSpeed">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#OilSpill"/>
+                    <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Wind"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/Speed"/>
+        <rdfs:comment>It refers to the speed . The properties has
+the “swe:Speed” class as a range. It is measured in m/s</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasTemperature -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasTemperature">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#AlgalBloom"/>
+                    <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#HotSpot"/>
+                    <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Upwelling"/>
+                    <rdf:Description rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/BodyOfWater"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/Temperature"/>
+        <rdfs:comment>it refers to the “swe:Temperature” concept and identify the
+presence of one or more temperature measurement. It is
+defined such as a standard RDF property</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasTotalSuspendedSoil -->
+
+    <owl:ObjectProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasTotalSuspendedSoil">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#ShallowWater"/>
+        <rdfs:range rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/TotalSuspendedSolid"/>
+        <rdfs:comment>It refers to the quantity of total suspended matter on
+the sea surface. The properties has the “swe:total_suspended_solid” class as a
+range</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://strdf.di.uoa.gr/ontology/hasGeometry -->
+
+    <owl:ObjectProperty rdf:about="http://strdf.di.uoa.gr/ontology/hasGeometry">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#GeographicalCoordinate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://sweet.jpl.nasa.gov/sweet2.3/hasEndTime -->
+
+    <owl:ObjectProperty rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/hasEndTime">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#Phenomenon"/>
+        <rdfs:comment>Defines the starting and the ending
+time of the phenomenon. They have range restrictions to swe:StartTime,
+swe:EndTime both subclasses of swe:Instant</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://sweet.jpl.nasa.gov/sweet2.3/hasStartTime -->
+
+    <owl:ObjectProperty rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/hasStartTime">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#Phenomenon"/>
+        <rdfs:comment>Defines the starting and the ending
+time of the phenomenon. They have range restrictions to swe:StartTime,
+swe:EndTime both subclasses of swe:Instant</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasAbstract -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasAbstract">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>It describes the presence of a text description of the image. It
+accepts alphanumerical values and it is defined as “abstract” property of the Dublin
+Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:abstract</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasAccuracy -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasAccuracy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#Phenomenon"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>It describes the accuracy of the phenomenon detected. It accepts
+floating numbers values and is defined as a standard RDF property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasCardinalValue -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasCardinalValue">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#CardinalDirection"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>It refers to the cardinal degree of the vector. It accepts integer
+numbers as range</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasChlorophyllAValue -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasChlorophyllAValue">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#ChlorophyllConcentration"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>It refers to the value of the measurement of the
+chlorophyll a concentration. It accepts floating point numbers as range</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasColour -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasColour">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#ShallowWater"/>
+                    <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Turbidity"/>
+                    <rdf:Description rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/BodyOfWater"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>It refers to the water colour assigned to the instance . It
+accepts string values and is defined as a standard RDF property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasEastLongitude -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasEastLongitude">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#BoxCoordinate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>It describes the east latitude of the map box. It accepts
+float values in the range -180 +180. It is defined as a generic RDF property.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasFormat -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasFormat">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>It describes the format of the image (raster or raw). It accepts
+alphanumerical values</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasGEMETID -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasGEMETID">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#RegionType"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>It describes the GEMET id of the region type. It accepts
+alphanumerical values and it is defined as the “identifier” property of the Dublin
+Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:identifier</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasGEMETName -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasGEMETName">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#RegionType"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>It describes the name assigned to the region type in GEMET.
+It accepts alphanumerical values and it is defined as the “title” property of the
+Dublin Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:title</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasGeonamesID -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasGeonamesID">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#AdministrativeRegion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>It defines the Geonames concept id of the administrative
+region. It accepts alphanumerical values and it is defined as the “identifier”
+property of the Dublin Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:identifier</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasGeonamesName -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasGeonamesName">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#AdministrativeRegion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>It describes the name assigned to the administrative
+region of interest in Geonames. It accepts alphanumerical values and is defined
+as the “title” property in the Dublin Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:title</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasHeightValue -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasHeightValue">
+        <rdfs:domain rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/Height"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>It refers to the height of the wave. It accepts floating number
+values and is defined as a standard RDF property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasIdentifier">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>It describes presence of a unique identifier of the image in the
+project. It accepts alphanumerical values and it is defined as the “identifier”
+property of the Dublin Core Ontology.</rdfs:comment>
+        <rdfs:isDefinedBy>dct:identifier</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasLatitude -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasLatitude">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#PointCoordinate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>It describes the latitude of the point on the map. It accepts float
+values in the range -90 +90. It is defined as a generic RDF property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasLineage -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasLineage">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>It is a field containing different textual information about the image.
+The content depends by the operator that fills it. It accepts alphanumerical values</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasLongitude -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasLongitude">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#PointCoordinate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>It will describe the longitude of the map point. It will accept
+float values in the range -180 +180. It is defined as a generic RDF property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasNorthLatitude -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasNorthLatitude">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#BoxCoordinate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>It describes the north latitude of the map box. It accepts
+float values in the range -90 +90. It is defined as a generic RDF property.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasOnlineResource -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasOnlineResource">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>It indicates the link for obtaining the resource from the
+web. It accepts alphanumerical strings compatible with URL format as the “URL” property of the Dublin Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:url</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasRateValue -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasRateValue">
+        <rdfs:domain rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/Rate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>It refers to the rate of the wave. It accepts floating number values
+and is defined as a standard RDF property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasRegionGeonamesID -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasRegionGeonamesID">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#ImageContentArea"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>It describes the Geonames concept id available if
+the area corresponds to a universal known region. It is defined as a generic RDF
+property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasRegionName -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasRegionName">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#ImageContentArea"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>It describes the name assigned to the region of interest by
+the user or the system that define the area. It accepts alphanumerical values and
+it is defined as the “title” property of the Dublin Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:title</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasResolution -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasResolution">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>It describes the presence of a resolution value for the
+image. It accepts numerical values and it is defined as a generic RDF property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasResponsible -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasResponsible">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>It describes the name of the subject responsible of the image.
+It accepts alphanumerical values</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasSeaLevelValue -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasSeaLevelValue">
+        <rdfs:domain rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/SeaLevel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>It refers to the value of the measurement of the sea level. It
+accepts floating point numbers as range</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasSeason -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasSeason">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#Time"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Autumn</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Spring</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>Summer</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>Winter</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment>It describes the season name associated to the date. It accepts
+string values among “spring”, “summer”, “autumn”, “winter” and it is defined as a
+generic RDF property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasSourceSatelliteName -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasSourceSatelliteName">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Sentinel 1</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Sentinel 2</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>Sentinel 3</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment>It describes the name of the satellite from which the
+image came from. It accepts one of the following textual values: “Sentinel 1”,
+“Sentinel 2”, “Sentinel 3”. It is defined as the “source” property of the Dublin Core
+Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:source</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasSouthLatitude -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasSouthLatitude">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#BoxCoordinate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>It describes the south latitude of the map box. It accepts
+float values in the range -90 +90 that are less than the one of north latitude. It
+is defined as a generic RDF property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasSpatialResolution -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasSpatialResolution">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>It describes the presence of a resolution value for the
+image. It accepts numerical values and it is defined as a generic RDF property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasSpeedValue -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasSpeedValue">
+        <rdfs:domain rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/Speed"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>it refers to the value of the measurement of the speed. It accepts
+floating point numbers as range.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasTemperatureValue -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasTemperatureValue">
+        <rdfs:domain rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/Temperature"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>It refers to the value of the measurement of the
+temperature. It accepts floating point numbers as range</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasTimestamp -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasTimestamp">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#Time"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+        <rdfs:comment>It describes the timestamp of acquisition of the image. It is
+defined as the “temporal” property of the Dublin Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:temporal</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasTitle">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>It describes the title assigned to the image. It accepts alphanumerical
+values and it is defined as the “title” property of the Dublin Core Ontology.</rdfs:comment>
+        <rdfs:isDefinedBy>dct:title</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasTotalSuspendedSoilValue -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasTotalSuspendedSoilValue">
+        <rdfs:domain rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/TotalSuspendedSolid"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>It refers to the quantity of solid particels in the
+water. It accepts floating number values and is defined as a standard RDF property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasTurbidityValue -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasTurbidityValue">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#Turbidity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>It refers to the numerical value of FTU assigned to the instance
+of turbidity. It accepts floating numbers values and is defined as a standard RDF
+property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasType -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasType">
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>It describes the representation type of the image. It accepts
+alphanumerical values</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasURL -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasURL">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#RegionType"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment>It describes the URL of the referring concept in GEMET. It accepts only
+valid URLs. It is defined as the “source” property of the Dublin Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:source</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasWestLongitude -->
+
+    <owl:DatatypeProperty rdf:about="http://seodwarf.eu/ontology/v1.0#hasWestLongitude">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://seodwarf.eu/ontology/v1.0#BoxCoordinate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>It describes the west longitude of the map box. It
+accepts float values in the range -180 +180 that are less than the one of east
+longitude. It is defined as a generic RDF property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#AdministrativeRegion -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#AdministrativeRegion">
+        <rdfs:seeAlso>The concept refers to a specific institutional entity that has the
+responsibility of the area</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Algae -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Algae">
+        <rdfs:seeAlso>dbo:Algae</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#AlgalBloom -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#AlgalBloom">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#OceanPhenomenon"/>
+        <rdfs:comment>it refers to the rapid increase or accumulation in the population of algae in
+a water system. The concept is placed as subclass of “seo:ocean_phenomenon” but it
+is linked with the SWEET Ontology concept “algal bloom” and with the DBpedia concept
+“Algal_Bloom”</rdfs:comment>
+        <rdfs:seeAlso>dbo:Algal_Bloom</rdfs:seeAlso>
+        <rdfs:seeAlso>swe:AlgalBloom</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#AverageTemperature -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#AverageTemperature">
+        <rdfs:subClassOf rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/Temperature"/>
+        <rdfs:comment>The “seo:average_temperature” refers to the value of the average of the measurements of
+the temperature in the area and acquires all the datatype properties of its parent</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#BoxCoordinate -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#BoxCoordinate">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#GeographicalCoordinate"/>
+        <owl:disjointWith rdf:resource="http://seodwarf.eu/ontology/v1.0#PointCoordinate"/>
+        <rdfs:comment>It identifies the coordinates used to define a box</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#BrownAlgae -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#BrownAlgae">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Heteroknophyta"/>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#CardinalDirection -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#CardinalDirection">
+        <rdfs:comment>The “seo:cardinal_direction” concept is defined as a subClassOf “swe:Array” and defines
+in degrees the direction of the wind vector. North (N): 0° = 360°, East (E): 90°, South (S):
+180°, West (W): 270°.</rdfs:comment>
+        <rdfs:seeAlso>dbo:Cardinal_Direction</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Chlorarachniophtya -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Chlorarachniophtya">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Eukaryota"/>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#ChlorophyllConcentration -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#ChlorophyllConcentration">
+        <rdfs:label>Chlo-a</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Chlorophyta -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Chlorophyta">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Eukaryota"/>
+        <rdfs:comment>Green algae</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Cryptophyta -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Cryptophyta">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Eukaryota"/>
+        <rdfs:comment>Cryptomonads</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Cyanophyta -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Cyanophyta">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Prokaryota"/>
+        <owl:disjointWith rdf:resource="http://seodwarf.eu/ontology/v1.0#Prochlorophyta"/>
+        <rdfs:comment>Blue-green algae</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Diatoms -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Diatoms">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Heteroknophyta"/>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Dinophyta -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Dinophyta">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Eukaryota"/>
+        <rdfs:comment>Dinoflagelates</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Euglenophyta -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Euglenophyta">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Eukaryota"/>
+        <rdfs:comment>Euglenoids</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Eukaryota -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Eukaryota">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Algae"/>
+        <owl:disjointWith rdf:resource="http://seodwarf.eu/ontology/v1.0#Prokaryota"/>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Front -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Front">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#OceanPhenomenon"/>
+        <rdfs:comment>it refers to a boundary separating two water masses moving in two different
+directions. The concept is placed as subclass of “seo:ocean_phenomenon” and it is
+linked the DBpedia concept “Front_(oceanography)</rdfs:comment>
+        <rdfs:seeAlso>dbo:Front(Oceanography)</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#GeographicalCoordinate -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#GeographicalCoordinate">
+        <rdfs:comment>The concept refers to the coordinate concept used to describe a point or a polygon in a geographical map. It has a reference to the DBpedia “Geographic_coordinate_system” concept for creating a linking point with the Linked
+Open Data Cloud. The specific concept will be added as child of the “swe:Coordinate
+System” concept</rdfs:comment>
+        <rdfs:seeAlso>dbo:Dimension</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Glaucophyta -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Glaucophyta">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Eukaryota"/>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#GoldenAlgae -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#GoldenAlgae">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Heteroknophyta"/>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Haptophyta -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Haptophyta">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Eukaryota"/>
+        <rdfs:comment>Coccolithophorids</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#HarmfulAlgalBloom -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#HarmfulAlgalBloom">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#AlgalBloom"/>
+        <rdfs:comment>“Harmful Algal Bloom” is a specific type of Algal Bloom correlated with a
+toxic species of algae</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Heteroknophyta -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Heteroknophyta">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Eukaryota"/>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#HotSpot -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#HotSpot">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#OceanPhenomenon"/>
+        <rdfs:comment>It is an area with higher water temperature than the temperatures recorded
+usually</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Image -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Image">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#SatelliteImage"/>
+        <rdfs:comment>The concept refers to a satellite image, used and archived in the project. It is the
+source used for responding to the user queries. Searching in the SWEET Ontology, we
+can identify the concept of “image” under the “Representation” class. The concept of
+“image” is extended generating the class of “Satellite Image” and the class “seo:image”</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#ImageContentArea -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#ImageContentArea">
+        <rdfs:comment>the concept refers to a specific region of the image that it is
+relevant to describe it. The region has a name, a set of coordinates, a type, a geoname_id
+if it is universally identified and a list of institutional area of reference (nations, regions,
+province, cities). It refers to the DBpedia concept “Location_(geography)” for creating a
+linking point with the Linked Open Data Cloud.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#LandSurfaceTemperature -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#LandSurfaceTemperature">
+        <rdfs:subClassOf rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/Temperature"/>
+        <rdfs:comment>The “seo:land_surface_temperature” refers to the value of measurements of the temperature
+over the land. It acquires all the datatype properties of its parent.</rdfs:comment>
+        <rdfs:label>LST</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#MeanSeaLevel -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#MeanSeaLevel">
+        <rdfs:subClassOf rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/SeaLevel"/>
+        <rdfs:comment>The “seo:mean_sea_level” concept refers to the mean level of sea in the area</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#MicrogramPerLiter -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#MicrogramPerLiter">
+        <rdfs:label>ug/L</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#MiligramPerLiter -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#MiligramPerLiter">
+        <rdfs:label>mg/L</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#OceanPhenomenon -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#OceanPhenomenon">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Phenomenon"/>
+        <rdfs:seeAlso>swe:OceanPhenomena</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#OilSpill -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#OilSpill">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#OceanPhenomenon"/>
+        <rdfs:comment>It refers to areas where liquid petroleum is released into the environment,
+especially marine areas. The concept is placed as subclass of “seo:ocean_phenomenon”
+but it is linked with the SWEET Ontology concept “oil spill” and with the DBpedia concept
+“Oil_spill”</rdfs:comment>
+        <rdfs:seeAlso>dbo:Oil_spill</rdfs:seeAlso>
+        <rdfs:seeAlso>swe:Oil_Spill</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Phenomenon -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Phenomenon">
+        <rdfs:comment>The general concept “phenomenon” is specialized into the
+“ocean_phenomenon” and where possible, concepts and relations from other ontologies
+are reused, while new concepts and relations are added if required. It refers to the
+DBpedia concept “Phenomenon” for creating a linking point with the Linked Open Data
+Cloud</rdfs:comment>
+        <rdfs:seeAlso>swe:PlanetaryPhenomena</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#PointCoordinate -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#PointCoordinate">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#GeographicalCoordinate"/>
+        <rdfs:comment>It identifies the coordinates used to define a point</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Prochlorophyta -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Prochlorophyta">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Prokaryota"/>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Prokaryota -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Prokaryota">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Algae"/>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#RegionType -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#RegionType">
+        <rdfs:comment>the concept refers to a specific description able to geographically
+characterize the region of interest. The concept is found in the SWEET Ontology as
+“type”, but it is extended as following for creating a specific class to represent GEMET
+Thesaurus types
+The instances of the “region_type” class accepts as range the following elements:
+ Natural Area or subclasses: https://www.eionet.europa.eu/gemet/concept?cp=5494&amp;langcode=en&amp;ns=1
+ Built-up area or subclasses: https://www.eionet.europa.eu/gemet/concept?cp=1065&amp;langcode=en&amp;ns=1
+ Sea or subclasses: https://www.eionet.europa.eu/gemet/concept?cp=7495&amp;langcode=en&amp;ns=1
+ Lake or subclasses: https://www.eionet.europa.eu/gemet/concept?cp=4594&amp;langcode=en&amp;ns=1
+ Watercourse or subclasses: https://www.eionet.europa.eu/gemet/concept?cp=9161&amp;langcode=en&amp;ns=1
+ Water body or subclasses: https://www.eionet.europa.eu/gemet/concept?cp=9151&amp;langcode=en&amp;ns=1
+ Water reservoir or subclasses: https://www.eionet.europa.eu/gemet/concept?cp=12248&amp;langcode=en&amp;ns=1</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Rhodophyta -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Rhodophyta">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Eukaryota"/>
+        <rdfs:comment>Red algae</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#SSTAnomaly -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#SSTAnomaly">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#SeaSurfaceTemperature"/>
+        <rdfs:comment>the quantity of sst that is anomaly identified</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#SSTNightime -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#SSTNightime">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#SeaSurfaceTemperature"/>
+        <rdfs:comment>sst in the night</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#SatelliteImage -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#SatelliteImage">
+        <rdfs:seeAlso>dbo:Satellite_imagery</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#SeaSurfaceTemperature -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#SeaSurfaceTemperature">
+        <rdfs:subClassOf rdf:resource="https://sweet.jpl.nasa.gov/sweet2.3/Temperature"/>
+        <rdfs:comment>The “seo:sea_surface_temperature” refers to the value of measurements of the temperature
+over the sea surface. It acquires all the datatype properties of its parent.</rdfs:comment>
+        <rdfs:label>SST</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#ShallowWater -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#ShallowWater">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#OceanPhenomenon"/>
+        <rdfs:comment>it refers to phenomenon about the disruption of the natural orbital motion
+of the wind. The concept is placed as subclass of “seo:ocean_phenomenon” and it is
+linked the DBpedia concept “Waves_and_shallow_water”</rdfs:comment>
+        <rdfs:seeAlso>dbo:Waves_and_Shallow_Water</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Time -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Time">
+        <rdfs:comment>The concept identifies a specific time instant, it is measured in seconds as default.
+It is defined in the SWEET Ontology (swe:Time), but it is expanded with a property that
+will explicitly assign a season name to the timestamp</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#TrophicStatusIndex -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#TrophicStatusIndex">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#OceanPhenomenon"/>
+        <rdfs:comment>It refers to the increase of nutrient concentrations followed by
+corollary increases in subsequent trophic levels, such as eutrophication. The concept is
+placed as subclass of “seo:ocean_phenomenon” and it is linked the DBpedia concept
+“Trophic_state_index”</rdfs:comment>
+        <rdfs:seeAlso>dbo:Trophic_state_index</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Turbidity -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Turbidity">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#OceanPhenomenon"/>
+        <rdfs:comment>it refers to the cloudiness or haziness of a fluid caused by large numbers of
+individual particles. The concept is placed as subclass of “seo:ocean_phenomenon” but
+it is linked with the SWEET Ontology concept “Turbidity” and with the DBpedia concept
+“Turbidity”</rdfs:comment>
+        <rdfs:seeAlso>dbo:Oil_Spill</rdfs:seeAlso>
+        <rdfs:seeAlso>swe:OilSpill</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Upwelling -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Upwelling">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#OceanPhenomenon"/>
+        <rdfs:comment>It refers to areas where water with Sea Surface Temperature (SST) lower
+than surrounding one is recorded. The concept is placed as subclass of
+“seo:ocean_phenomenon” but it is linked with the SWEET Ontology concept “Upwelling”
+and with the DBpedia concept “Upwelling”</rdfs:comment>
+        <rdfs:seeAlso>dbo:Upwelling</rdfs:seeAlso>
+        <rdfs:seeAlso>swe:Upwelling</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Wave -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Wave">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#OceanPhenomenon"/>
+        <rdfs:comment>it refers to the waves present on the sea surfaces. The concept is placed as
+subclass of “seo:ocean_phenomenon” and it is linked the DBpedia concept
+“Wind_wave”</rdfs:comment>
+        <rdfs:seeAlso>dbo:Wind_Wave</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Wind -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#Wind">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#OceanPhenomenon"/>
+        <rdfs:comment>the concept refers to a sea surface wind that is a crucial parameter for operational
+use and for studies in coastal regions. The concept is placed as subclass of
+“seo:ocean_phenomenon” and it is linked with the SWEET Ontology concept “Ocean
+Wind” and with the DBpedia concept “Wind”</rdfs:comment>
+        <rdfs:seeAlso>dbo:Wind</rdfs:seeAlso>
+        <rdfs:seeAlso>swe:OceanWind</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#YellowGreenAlgae -->
+
+    <owl:Class rdf:about="http://seodwarf.eu/ontology/v1.0#YellowGreenAlgae">
+        <rdfs:subClassOf rdf:resource="http://seodwarf.eu/ontology/v1.0#Heteroknophyta"/>
+    </owl:Class>
+    
+
+
+    <!-- https://sweet.jpl.nasa.gov/sweet2.3/BodyOfWater -->
+
+    <owl:Class rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/BodyOfWater"/>
+    
+
+
+    <!-- https://sweet.jpl.nasa.gov/sweet2.3/Distance -->
+
+    <owl:Class rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/Distance"/>
+    
+
+
+    <!-- https://sweet.jpl.nasa.gov/sweet2.3/Height -->
+
+    <owl:Class rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/Height"/>
+    
+
+
+    <!-- https://sweet.jpl.nasa.gov/sweet2.3/Rate -->
+
+    <owl:Class rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/Rate"/>
+    
+
+
+    <!-- https://sweet.jpl.nasa.gov/sweet2.3/SeaLevel -->
+
+    <owl:Class rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/SeaLevel"/>
+    
+
+
+    <!-- https://sweet.jpl.nasa.gov/sweet2.3/Size -->
+
+    <owl:Class rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/Size"/>
+    
+
+
+    <!-- https://sweet.jpl.nasa.gov/sweet2.3/Speed -->
+
+    <owl:Class rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/Speed"/>
+    
+
+
+    <!-- https://sweet.jpl.nasa.gov/sweet2.3/Temperature -->
+
+    <owl:Class rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/Temperature">
+        <rdfs:comment>The “swe:Temperature” concept is extended to formalize the “seo:average_temperature”
+and the “seo:sea_surface_temperature” concepts and to assign a temperature value to each
+measurement</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://sweet.jpl.nasa.gov/sweet2.3/TotalSuspendedSolid -->
+
+    <owl:Class rdf:about="https://sweet.jpl.nasa.gov/sweet2.3/TotalSuspendedSolid">
+        <rdfs:label>TSM</rdfs:label>
+        <rdfs:label>TSS</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#AlgalBloom"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Front"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#HotSpot"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#OilSpill"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#ShallowWater"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#TrophicStatusIndex"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Turbidity"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Upwelling"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Wave"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Wind"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#BrownAlgae"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Diatoms"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#GoldenAlgae"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#YellowGreenAlgae"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Chlorarachniophtya"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Chlorophyta"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Cryptophyta"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Dinophyta"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Euglenophyta"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Glaucophyta"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Haptophyta"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Heteroknophyta"/>
+            <rdf:Description rdf:about="http://seodwarf.eu/ontology/v1.0#Rhodophyta"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+

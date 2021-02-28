@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dbo "http://dbpedia.org/resource/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY strdf "http://strdf.di.uoa.gr/ontology/" >
+    <!ENTITY seo "http://seodwarf.eu/ontology/v1.0" >
+    <!ENTITY gn "http://www.geonames.org/ontology" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY geo "http://www.eionet.europa.eu/gemet" >
+    <!ENTITY swe "https://sweet.jpl.nasa.gov/sweet2.3/" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY dct "http://dublincore.org/documents/2012/06/14/dcmiterms/" >
+]>
+
+
+<rdf:RDF xmlns="&seo;#"
+     xml:base="http://seodwarf.eu/ontology/v1.0"
+     xmlns:geo="http://www.eionet.europa.eu/gemet"
+     xmlns:swe="https://sweet.jpl.nasa.gov/sweet2.3/"
+     xmlns:gn="http://www.geonames.org/ontology"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:strdf="http://strdf.di.uoa.gr/ontology/"
+     xmlns:dbo="http://dbpedia.org/resource/"
+     xmlns:dct="http://dublincore.org/documents/2012/06/14/dcmiterms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:seo="http://seodwarf.eu/ontology/v1.0">
+    <owl:Ontology rdf:about="http://seodwarf.eu/ontology/v1.0">
+        <rdfs:label>SEO-DWARF Environment Ontology</rdfs:label>
+        <owl:versionIRI rdf:resource="&seo;/1.0.0"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasPhenomenon -->
+
+    <owl:ObjectProperty rdf:about="&seo;#hasPhenomenon">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment>It describes the phenomenon present in the region of
+reference. It refers to the “image_SEO-DWARF_phenomenon” concept. It is
+defined as the “Part” property of the Dublin Core Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:hasPart</rdfs:isDefinedBy>
+        <rdfs:range rdf:resource="&seo;#Phenomenon"/>
+        <rdfs:domain rdf:resource="&seo;#SatelliteImage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasAbstract -->
+
+    <owl:DatatypeProperty rdf:about="&seo;#hasAbstract">
+        <rdfs:isDefinedBy>dct:abstract</rdfs:isDefinedBy>
+        <rdfs:comment>It describes the presence of a text description of the image. It
+accepts alphanumerical values and it is defined as “abstract” property of the Dublin
+Core Ontology</rdfs:comment>
+        <rdfs:domain rdf:resource="&seo;#SatelliteImage"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasBoundingBox -->
+
+    <owl:DatatypeProperty rdf:about="&seo;#hasBoundingBox">
+        <rdfs:comment>Represents the Bounding Box of the Image in WKT</rdfs:comment>
+        <rdfs:domain rdf:resource="&seo;#SatelliteImage"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasClass -->
+
+    <owl:DatatypeProperty rdf:about="&seo;#hasClass">
+        <rdfs:comment>Represents the class for the phenomenon</rdfs:comment>
+        <rdfs:domain rdf:resource="&seo;#Phenomenon"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasFormat -->
+
+    <owl:DatatypeProperty rdf:about="&seo;#hasFormat">
+        <rdfs:comment>It describes the format of the image (raster or raw). It accepts
+alphanumerical values</rdfs:comment>
+        <rdfs:domain rdf:resource="&seo;#SatelliteImage"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="&seo;#hasIdentifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:isDefinedBy>dct:identifier</rdfs:isDefinedBy>
+        <rdfs:comment>It describes presence of a unique identifier of the image in the
+project. It accepts alphanumerical values and it is defined as the “identifier”
+property of the Dublin Core Ontology.</rdfs:comment>
+        <rdfs:domain rdf:resource="&seo;#SatelliteImage"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasLineage -->
+
+    <owl:DatatypeProperty rdf:about="&seo;#hasLineage">
+        <rdfs:comment>It is a field containing different textual information about the image.
+The content depends by the operator that fills it. It accepts alphanumerical values</rdfs:comment>
+        <rdfs:domain rdf:resource="&seo;#SatelliteImage"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasOnlineResource -->
+
+    <owl:DatatypeProperty rdf:about="&seo;#hasOnlineResource">
+        <rdfs:isDefinedBy>dct:url</rdfs:isDefinedBy>
+        <rdfs:comment>It indicates the link for obtaining the resource from the
+web. It accepts alphanumerical strings compatible with URL format as the “URL” property of the Dublin Core Ontology</rdfs:comment>
+        <rdfs:domain rdf:resource="&seo;#SatelliteImage"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasPhenomenonCoverage -->
+
+    <owl:DatatypeProperty rdf:about="&seo;#hasPhenomenonCoverage">
+        <rdfs:comment>The geometry of the phenomenon in WKT</rdfs:comment>
+        <rdfs:domain rdf:resource="&seo;#Phenomenon"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasResponsible -->
+
+    <owl:DatatypeProperty rdf:about="&seo;#hasResponsible">
+        <rdfs:comment>It describes the name of the subject responsible of the image.
+It accepts alphanumerical values</rdfs:comment>
+        <rdfs:domain rdf:resource="&seo;#SatelliteImage"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasSourceSatelliteName -->
+
+    <owl:DatatypeProperty rdf:about="&seo;#hasSourceSatelliteName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment>It describes the name of the satellite from which the
+image came from. It accepts one of the following textual values: “Sentinel 1”,
+“Sentinel 2”, “Sentinel 3”. It is defined as the “source” property of the Dublin Core
+Ontology</rdfs:comment>
+        <rdfs:isDefinedBy>dct:source</rdfs:isDefinedBy>
+        <rdfs:domain rdf:resource="&seo;#SatelliteImage"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first>Sentinel 1</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first>Sentinel 2</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first>Sentinel 3</rdf:first>
+                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasSpatialResolution -->
+
+    <owl:DatatypeProperty rdf:about="&seo;#hasSpatialResolution">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment>It describes the presence of a resolution value for the
+image. It accepts numerical values and it is defined as a generic RDF property</rdfs:comment>
+        <rdfs:domain rdf:resource="&seo;#SatelliteImage"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasTimestamp -->
+
+    <owl:DatatypeProperty rdf:about="&seo;#hasTimestamp">
+        <rdfs:isDefinedBy>dct:temporal</rdfs:isDefinedBy>
+        <rdfs:comment>It describes the timestamp of acquisition of the image. It is
+defined as the “temporal” property of the Dublin Core Ontology</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasTitle -->
+
+    <owl:DatatypeProperty rdf:about="&seo;#hasTitle">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:isDefinedBy>dct:title</rdfs:isDefinedBy>
+        <rdfs:comment>It describes the title assigned to the image. It accepts alphanumerical
+values and it is defined as the “title” property of the Dublin Core Ontology.</rdfs:comment>
+        <rdfs:domain rdf:resource="&seo;#SatelliteImage"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#hasType -->
+
+    <owl:DatatypeProperty rdf:about="&seo;#hasType">
+        <rdfs:comment>It describes the representation type of the image. It accepts
+alphanumerical values</rdfs:comment>
+        <rdfs:domain rdf:resource="&seo;#SatelliteImage"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#AlgalBloom -->
+
+    <owl:Class rdf:about="&seo;#AlgalBloom">
+        <rdfs:subClassOf rdf:resource="&seo;#OceanPhenomenon"/>
+        <rdfs:seeAlso>swe:&apos;algal bloom&apos;</rdfs:seeAlso>
+        <rdfs:comment>it refers to the rapid increase or accumulation in the population of algae in
+a water system. The concept is placed as subclass of “seo:ocean_phenomenon” but it
+is linked with the SWEET Ontology concept “algal bloom” and with the DBpedia concept
+“Algal_Bloom”</rdfs:comment>
+        <rdfs:seeAlso>dbo:Algal_Bloom</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Image -->
+
+    <owl:Class rdf:about="&seo;#Image">
+        <rdfs:comment>The concept refers to a satellite image, used and archived in the project. It is the
+source used for responding to the user queries. Searching in the SWEET Ontology, we
+can identify the concept of “image” under the “Representation” class. The concept of
+“image” is extended generating the class of “Satellite Image” and the class “seo:image”</rdfs:comment>
+        <rdfs:seeAlso>swe:image</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#OceanPhenomenon -->
+
+    <owl:Class rdf:about="&seo;#OceanPhenomenon">
+        <rdfs:subClassOf rdf:resource="&seo;#Phenomenon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#OilSpill -->
+
+    <owl:Class rdf:about="&seo;#OilSpill">
+        <rdfs:subClassOf rdf:resource="&seo;#OceanPhenomenon"/>
+        <rdfs:seeAlso>dbo:Oil_spill</rdfs:seeAlso>
+        <rdfs:seeAlso>swe:&apos;oil spill&apos;</rdfs:seeAlso>
+        <rdfs:comment>It refers to areas where liquid petroleum is released into the environment,
+especially marine areas. The concept is placed as subclass of “seo:ocean_phenomenon”
+but it is linked with the SWEET Ontology concept “oil spill” and with the DBpedia concept
+“Oil_spill”</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Phenomenon -->
+
+    <owl:Class rdf:about="&seo;#Phenomenon">
+        <rdfs:seeAlso>swe:phenomena</rdfs:seeAlso>
+        <rdfs:comment>The general concept “phenomenon” is specialized into the
+“ocean_phenomenon” and where possible, concepts and relations from other ontologies
+are reused, while new concepts and relations are added if required. It refers to the
+DBpedia concept “Phenomenon” for creating a linking point with the Linked Open Data
+Cloud</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#SatelliteImage -->
+
+    <owl:Class rdf:about="&seo;#SatelliteImage">
+        <rdfs:subClassOf rdf:resource="&seo;#Image"/>
+        <rdfs:seeAlso>dbo:Satellite_imagery</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://seodwarf.eu/ontology/v1.0#Turbidity -->
+
+    <owl:Class rdf:about="&seo;#Turbidity">
+        <rdfs:subClassOf rdf:resource="&seo;#OceanPhenomenon"/>
+        <rdfs:seeAlso>swe:&apos;turbidity current&apos;</rdfs:seeAlso>
+        <rdfs:seeAlso>dbo:Oil_Spill</rdfs:seeAlso>
+        <rdfs:comment>it refers to the cloudiness or haziness of a fluid caused by large numbers of
+individual particles. The concept is placed as subclass of “seo:ocean_phenomenon” but
+it is linked with the SWEET Ontology concept “Turbidity” and with the DBpedia concept
+“Turbidity”</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
